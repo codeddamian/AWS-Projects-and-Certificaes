@@ -1,0 +1,4 @@
+Objective: build and setup a Jumpbox or Nat Instance (public EC2 instance) to access a private EC2 instance located in a private subnet with no direct access to Internet.
+
+
+
