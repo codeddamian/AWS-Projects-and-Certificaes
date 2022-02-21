@@ -1,0 +1,41 @@
+AMI stands for Amazon Machine Image. It's a master image for the creation of virtual servers i.e., EC2 instances in the AWS environment.
+
+They are like templates that are configured with an operating system and other software, which determine the user's operating environment.
+
+AMIs are categorized according to region, operating system, system architecture (32 or 64 bit), launch permissions and whether they are backed by Amazon EBS 
+or by the Instance Store.
+
+AMI includes a template for the root volume required for an instance; typical example might contain an operating system, an application server and applications.
+
+A block device mapping ensures that the correct volumes are attached to the launched instance.
+
+Users have the facility of selecting AMI provided by AWS, the user community, or through the AWS Marketplace.
+
+Users can also create their own AMIs and share them within the same region or across regions.
+
+Task Details
+
+Log into the AWS Management Console.
+
+Create an EC2 Instance. - Enable Auto IP, ADD SSH and HTTP to the Security group and  Add this script to the userdata, 
+
+#!/bin/bash
+sudo su
+yum update -y
+yum install httpd -y
+echo "<html><h1> Welcome to Damian's website </h1><html>" >> /var/www/html/index.html
+systemctl start httpd
+systemctl enable httpd
+
+Validate the website was created by copying the public Ip to a browser and you should see the Page "Welcome to Damian's website"  
+
+Create a new AMI using the EC2 Instance.
+
+Go to the Instance and on the Actions Tab you will see Create Images on the Images and Template drop down 
+After that on the left Pane you will see AMI  and the AMI you have created. Add tags to make it Identifiable 
+
+Checking the newly created with AMI.
+
+Launching the EC2 instance created with the created AMI and testing the AMI.
+
+Validation of the lab.
